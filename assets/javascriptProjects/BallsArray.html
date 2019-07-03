@@ -1,0 +1,250 @@
+<html>
+
+
+<head>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="utf-8" />
+ <link rel="stylesheet" href="../CSS/FlexShop2.css">
+	<link rel="stylesheet" href="../CSS/NavigationBarStyle.css">
+	<link rel="stylesheet" href="../CSS/SiteStyle.css">
+	<link rel="stylesheet" href="../CSS/Carousel2.css">
+
+    <link rel="stylesheet" href="Minor.css">
+
+	<script type="text/javascript" src="../javascript/navigationbar.js"></script>
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<script type="text/javascript">
+
+
+
+
+//  for horizontal; width
+  //var Xcoord = Math.floor(Math.random()*500)*1;
+  //var Ycoord = Math.floor(Math.random()*150)*1;
+  //var Xcoord = 150;
+  //var Ycoord = 100;
+  var thevar;
+  var circleArray = new Array();
+  
+//define object(keep track of its attributes)
+  function defineCircle(x,y,velx,vely){
+    this.x = x;
+    this.y = y;
+    this.velx = velx;
+    this.vely = vely;
+  } 
+  
+//create the array
+  function makeCircle(){
+    for(var i=0; i<10; i++){
+        var Xcoord = Math.floor(Math.random() * 500)*1;
+        var Ycoord = Math.floor(Math.random() * 150)*1;
+        
+        circleArray[i] = new defineCircle(Xcoord,Ycoord , Math.floor(Math.random() * 10)*1, Math.floor(Math.random() * 10)*1);  
+            
+        }
+      //call the scream function
+      drawCircle(); 
+      
+  }
+
+  
+  
+//The Timer for move function
+  function Timer(){ thevar = setInterval("Move()", 100);}
+
+// drawing circle
+  function drawCircle() {
+    var c = document.getElementById("myCanvas");
+    var ctx = c.getContext("2d");
+    ctx.canvas.width = 500;
+    ctx.canvas.height = 500;
+    ctx.fillStyle = "#000000";
+    ctx.fillRect(0,0, window.innerWidth, window.innerHeight);
+//keeps track of how many times youve done something ----------FIX THIS PART---------
+    for (var i=0;i<circleArray.length; i++){
+      ctx.fillStyle = getRandomColor();     
+      ctx.beginPath();
+      ctx.arc(circleArray[i].x,circleArray[i].y, 15,0,Math.PI * 2,true);
+      ctx.closePath();
+      ctx.fill();
+    }
+      
+    
+  }
+//colors
+  function getRandomColor() {
+
+// creating a random number between 0 and 255
+// creating colors; r=red, g= green, b= blue
+//colors are red green and blue mixed together that is why there is three variables
+var r = Math.floor(Math.random()*256);
+var g = Math.floor(Math.random()*256);
+var b = Math.floor(Math.random()*256);
+ 
+// going from decimal to hex
+var hexR = r.toString(16);
+var hexG = g.toString(16);
+var hexB = b.toString(16);
+ 
+// making sure single character values are prepended with a "0"
+if (hexR.length == 1) {
+hexR = "0" + hexR;
+}
+ 
+if (hexG.length == 1) {
+hexG = "0" + hexG;
+}
+ 
+if (hexB.length == 1) {
+hexB = "0" + hexB;
+}
+ 
+  // creating the hex value by concatenatening the string values
+    var hexColor = "#" + hexR + hexG + hexB;
+    return hexColor.toUpperCase();
+}
+
+
+  //Move function
+  function Move(){
+    for( var k=0;k<circleArray.length;k++){
+    //horizontal
+    if(circleArray[k].x > document.getElementById("myCanvas").width){ 
+      circleArray[k].velx *= -1;  
+    }
+    else if(circleArray[k].x <= 0){ 
+      circleArray[k].velx *= -1;  
+    }
+    circleArray[k].x += circleArray[k].velx;
+      
+      //vertical
+    if(circleArray[k].y > document.getElementById("myCanvas").height){
+      circleArray[k].vely *= -1;
+      }
+  else if(circleArray[k].y <= 0){
+      circleArray[k].vely *= -1;
+    }
+  circleArray[k].y += circleArray[k].vely;  
+  
+
+  
+      circleArray[k].x += circleArray[k].velx;
+      circleArray[k].y += circleArray[k].vely;
+    }
+    
+  
+  
+  drawCircle();
+  
+} 
+
+function StopTimer(){
+  clearInterval(thevar);
+}
+
+	
+	
+		
+</script>
+
+
+</head>
+
+<body onload="makeCircle()">
+	
+<!--     Navigation Bar     -->
+<div class="topnav" id="myTopnav">
+  <a href="../Index.html" class="active">MadelineTjoa</a>
+  <a href="../Qualifications.html">Qualifications</a>
+  <a href="../About.html">About</a>
+  <div class="dropdown">
+    <button class="dropbtn">Code Projects 
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="../CSharp.html">C#</a>
+      <a href="../HTML.html">HTML</a>
+      <a href="../JavaScript.html">JavaScript</a>
+      <a href="../Flash.html">Flash</a>
+      <a href="../Java.html">Java</a>
+    </div>
+  </div> 
+   <div class="dropdown">
+    <button class="dropbtn">Visual Projects 
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="../Photography.html">Photography</a>
+      <a href="../Illustrator.html">Illustrator</a>
+    </div>
+  </div> 
+  <a href="../Contact.html">Contact</a>
+
+
+  <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+</div>
+
+<!--     Top Image   -->
+<section class = "toppings">
+  
+
+
+</section>
+
+
+<!--     Content  >>>>>>>>>>>>>>>>>>>>   --> 
+
+<section >
+
+
+
+  </br>
+  <a href="../JavaScript.html" class="BackBack" >Back to JavaScript Project List</a>
+</br>
+  
+  <p>Balls Array</p>
+
+
+<canvas id = "myCanvas" width = "500" height = "500"
+style = "border: 1px solid rgb(195,195,195);">
+Your browser does not support the canvas tag element
+</canvas>
+</br>
+<input type = "button" name = "Stop Timer" value="Stop Circle" onclick ="StopTimer()"/>
+<input type="button" name="GOOO" value="auto-Move Bals" onclick="Timer()"/>
+
+</section>
+
+
+
+
+
+
+<!--     Butts     -->
+<section>
+
+  </br>
+  </br>
+  
+  <center>
+    
+    &copy MadelineTjoa 2018 
+
+  </center>
+
+  </br>
+  </br>
+
+</section>
+  
+
+
+
+
+</body>
+
+</html>

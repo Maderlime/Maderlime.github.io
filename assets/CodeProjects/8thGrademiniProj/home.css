@@ -1,0 +1,27 @@
+body{
+	background-image: url(stars.gif);
+		background-repeat: repeat;
+		background-position: top left;
+		background-attachment: fixed;
+		
+
+
+
+}
+
+table{
+	background-image: url(brown.png);
+		width: 800px;
+		border: 20px;
+		border-color: Green;
+
+		
+		
+
+
+
+}
+a:hover{
+background-color:orange;
+
+}

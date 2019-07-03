@@ -1,0 +1,323 @@
+<html>
+
+
+<head>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="utf-8" />
+ <link rel="stylesheet" href="../CSS/FlexShop2.css">
+	<link rel="stylesheet" href="../CSS/NavigationBarStyle.css">
+	<link rel="stylesheet" href="../CSS/SiteStyle.css">
+	<link rel="stylesheet" href="../CSS/Carousel2.css">
+    <link rel="stylesheet" href="Minor.css">
+	<script type="text/javascript" src="../javascript/navigationbar.js"></script>
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<script type="text/javascript">
+
+
+
+
+var TurnNumber = 0;
+var designatednumber = 0;
+
+function myFunction() {
+    var x = Math.floor((Math.random() * 6) + 1);
+  var y = Math.floor((Math.random() * 6) + 1);
+  var wombocombo = x+y;
+
+
+ //   document.getElementById("Dice1").innerHTML = x;
+//  document.getElementById("Dice2").innerHTML = y;
+  document.OutputForm1.WomboCombo.value = "You Rolled a "+wombocombo;
+  
+  //count the turns
+  TurnNumber+=1;
+  
+if(x==1){
+document.getElementById("Dixe1").src = "Projects/Dice/1.jpg";
+}
+else if(x==2){
+document.getElementById("Dixe1").src = "Projects/Dice/2.png";
+}
+else if(x==3){
+document.getElementById("Dixe1").src = "Projects/Dice/3.png";
+}
+else if(x==4){
+document.getElementById("Dixe1").src = "Projects/Dice/4.png";
+}
+else if(x==5){
+document.getElementById("Dixe1").src = "Projects/Dice/5.png";
+}
+else if(x==6){
+document.getElementById("Dixe1").src = "Projects/Dice/6.png";
+}
+  
+if(y==1){
+document.getElementById("Dixe2").src = "Projects/Dice/1.jpg";
+}
+else if(y==2){
+document.getElementById("Dixe2").src = "Projects/Dice/2.png";
+}
+else if(y==3){
+document.getElementById("Dixe2").src = "Projects/Dice/3.png";
+}
+else if(y==4){
+document.getElementById("Dixe2").src = "Projects/Dice/4.png";
+}
+else if(y==5){
+document.getElementById("Dixe2").src = "Projects/Dice/5.png";
+}
+else if(y==6){
+document.getElementById("Dixe2").src = "Projects/Dice/6.png";
+}
+  
+  
+  
+  
+//This is first turn's code 
+if(TurnNumber == 1){
+  //turn 1 wins
+  if(wombocombo == 7){  
+    document.OutputForm1.WhatsHappening.value="You got a seven your first turn! You win";
+    TurnNumber=0;   
+  }
+  else if(wombocombo == 11){
+  document.OutputForm1.WhatsHappening.value="You got an eleven your first turn! You win";
+    TurnNumber=0; 
+  }
+  //idk instant loss or something
+  else if(wombocombo == 2){
+    document.OutputForm1.WhatsHappening.value="You got a two your first turn! You lose";
+    TurnNumber=0; 
+  }
+  else if(wombocombo == 3){
+  document.OutputForm1.WhatsHappening.value="You got a three your first turn! You lose";
+    TurnNumber=0; 
+  }
+  else if(wombocombo == 12){
+  document.OutputForm1.WhatsHappening.value="You got a twelve your first turn! You lose";
+    TurnNumber=0; 
+  }
+  //this is the count
+  else if(wombocombo == 4){
+  document.OutputForm1.WhatsHappening.value="You got a four your first turn. This is your count";
+    designatednumber = 4; 
+  }
+  else if(wombocombo == 5){
+  document.OutputForm1.WhatsHappening.value="You got a five your first turn. This is your count";
+    designatednumber = 5;
+  }
+  else if(wombocombo == 6){
+  document.OutputForm1.WhatsHappening.value="You got a six your first turn. This is your count";
+    designatednumber = 6;
+  }
+  else if(wombocombo == 8){
+  document.OutputForm1.WhatsHappening.value="You got an eight your first turn. This is your count";
+    designatednumber = 8;
+  }
+  else if(wombocombo == 9){
+  document.OutputForm1.WhatsHappening.value="You got a nine your first turn. This is your count";
+    designatednumber = 9;
+  }
+  else if(wombocombo == 10){
+  document.OutputForm1.WhatsHappening.value="You got a ten your first turn. This is your count";
+    designatednumber = 10;
+  }
+  
+  document.getElementById("ThePoint").innerHTML = designatednumber;
+  
+} 
+//If the turn isnt the first turn then it goes to this code 
+else{
+  //turn 1 wins
+  if(wombocombo == 7){    
+  document.OutputForm1.WhatsHappening.value="You got a seven! you lose";
+    TurnNumber = 0;
+  }
+  if(wombocombo == 11){
+  document.OutputForm1.WhatsHappening.value="You got a eleven. Keep on going";
+
+  }
+  //idk instant loss or something
+  if(wombocombo == 2){
+  document.OutputForm1.WhatsHappening.value="You got a two. Keep on going";
+  }
+  if(wombocombo == 3){
+  document.OutputForm1.WhatsHappening.value="You got a three. Keep on going";
+  }
+  if(wombocombo == 12){
+  document.OutputForm1.WhatsHappening.value="You got a twelve. Keep on going";
+  }
+  //this is the count; and the player probs won
+  if(wombocombo == 4){
+    if(designatednumber == wombocombo){
+    document.OutputForm1.WhatsHappening.value="You got a four! You win";
+    TurnNumber = 0;
+    }
+    else{
+    document.OutputForm1.WhatsHappening.value="You got a four. Not your desinated number. Keep on going";
+    }
+    
+  }
+  if(wombocombo == 5){
+    if(designatednumber == wombocombo){
+      document.OutputForm1.WhatsHappening.value="You got a 5! You win";
+      TurnNumber = 0;}
+    else{
+    document.OutputForm1.WhatsHappening.value="You got a five. Not your desinated number. Keep on going";
+    }
+  }
+  if(wombocombo == 6){
+    if(designatednumber == wombocombo){
+      document.OutputForm1.WhatsHappening.value="You got a six! You win";
+      TurnNumber = 0;}
+    else{
+    document.OutputForm1.WhatsHappening.value="You got a six. Not your desinated number. Keep on going";
+    }
+  }
+  if(wombocombo == 8){
+    if(designatednumber == wombocombo){
+      document.OutputForm1.WhatsHappening.value="You got an eight! You win";
+      TurnNumber = 0;}
+    else{
+    document.OutputForm1.WhatsHappening.value="You got an eight. Not your desinated number. Keep on going";
+    }
+  }
+  if(wombocombo == 9){
+    if(designatednumber == wombocombo){
+      document.OutputForm1.WhatsHappening.value="You got a four! You win";
+      TurnNumber = 0;}
+    else{
+    document.OutputForm1.WhatsHappening.value="You got a nine. Not your desinated number. Keep on going";
+    }
+  }
+  if(wombocombo == 10){
+    if(designatednumber == wombocombo){
+      document.OutputForm1.WhatsHappening.value="You got a ten! You win";
+      TurnNumber = 0;}
+    else{
+      document.OutputForm1.WhatsHappening.value="You got a ten. Not your desinated number. Keep on going";
+    } 
+  }
+    
+} 
+
+//Output values down into OutputForm1 
+  document.OutputForm1.NumberTerms.value= "Turn number: " + TurnNumber; 
+}
+
+	
+	
+		
+</script>
+
+
+</head>
+
+<body>
+	
+<!--     Navigation Bar     -->
+<div class="topnav" id="myTopnav">
+  <a href="../Index.html" class="active">MadelineTjoa</a>
+  <a href="../Qualifications.html">Qualifications</a>
+  <a href="../About.html">About</a>
+  <div class="dropdown">
+    <button class="dropbtn">Code Projects 
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="../CSharp.html">C#</a>
+      <a href="../HTML.html">HTML</a>
+      <a href="../JavaScript.html">JavaScript</a>
+      <a href="../Flash.html">Flash</a>
+      <a href="../Java.html">Java</a>
+    </div>
+  </div> 
+   <div class="dropdown">
+    <button class="dropbtn">Visual Projects 
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="../Photography.html">Photography</a>
+      <a href="../Illustrator.html">Illustrator</a>
+    </div>
+  </div> 
+  <a href="../Contact.html">Contact</a>
+
+
+  <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+</div>
+
+<!--     Top Image   -->
+<section class = "toppings">
+  
+
+
+</section>
+
+
+<!--     Content  >>>>>>>>>>>>>>>>>>>>   --> 
+
+<section >
+  </br>
+   <a href="../JavaScript.html" class="BackBack" >Back to JavaScript Project List</a>
+</br>
+  
+  <p>Craps Game</p>
+<center>
+<button onclick="myFunction()">Roll</button>
+
+</br>
+
+Your point:<p id="ThePoint"/>
+<br></br></br></br>
+<form name="OutputForm1">
+
+<textarea id="Sum" name="WomboCombo" rows="1" col="1" ></textarea>
+<textarea id="Track" name="WhatsHappening" rows="3" col="2" ></textarea>
+<textarea id="Turns" name="NumberTerms" rows="1" col="1" ></textarea>
+
+
+</br>
+<img class="isolate" src="Projects/Dice/1.jpg" id= "Dixe1" style="max-width: 25%;"/>
+<img class="isolate" src="Projects/Dice/1.jpg" id= "Dixe2" style="max-width: 25%;"/>
+
+</form>
+</center>
+              </section>
+
+
+
+</section>
+
+
+
+
+
+
+<!--     Butts     -->
+<section>
+
+  </br>
+  </br>
+  
+  <center>
+    
+    &copy MadelineTjoa 2018 
+
+  </center>
+
+  </br>
+  </br>
+
+</section>
+  
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,350 @@
+<html>
+
+
+<head>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="utf-8" />
+ <link rel="stylesheet" href="../CSS/FlexShop2.css">
+	<link rel="stylesheet" href="../CSS/NavigationBarStyle.css">
+	<link rel="stylesheet" href="../CSS/SiteStyle.css">
+	<link rel="stylesheet" href="../CSS/Carousel2.css">
+    <link rel="stylesheet" href="Minor.css">
+	<script type="text/javascript" src="../javascript/navigationbar.js"></script>
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<script type="text/javascript">
+
+
+
+
+
+var canvas;
+var ctx;
+
+var dx = 5;
+var dy = 5;
+
+//ship coordinates
+var x = 150;
+var y = 100;
+//bullets corrdinates. declare coordinatesfor bullet
+var bulletX = 150 *1;
+var bulletY = 100 *1;
+
+//enemy invader coordinates
+var enemyx = 150 *1;
+var enemyy = 0;
+
+var moveX = 10 *1;
+var moveY = 0;
+
+//width and hieght of canvas
+var WIDTH = 300;
+var HEIGHT = 200;
+
+var thevar = setInterval("Move()", 100);;
+
+var HITS = 0;
+
+//create switch to turn bullet timer on and off
+var fireOn = false;
+//timer for enemy invader
+var moveEnemy = true;
+
+
+
+init();
+//window.addEventListener('keydown',doKeyDown,true);
+
+
+//MOVE INVADER
+  function Move(){
+
+      if(enemyx >document.getElementById("canvas").width){
+        moveX *= -1;
+        enemyy += 10;
+      }
+      if (enemyx < 3){
+        moveX *= -1;
+        enemyy +=10;
+      }
+    enemyx += moveX;
+  
+    Invader();
+    
+  }
+
+//funcation draws purple circle
+  function circle(x,y,r) {
+    ctx.beginPath();
+    ctx.arc(x, y, r, 0, Math.PI*2, true);
+    ctx.closePath();
+    ctx.fill();
+    
+      
+  }
+
+//function to draw bullet?
+  function drawBullet(x2, y2, r){
+    ctx.beginPath();
+    ctx.arc(x2, y2, r, 0, Math.PI*2, true);
+    ctx.closePath();
+    ctx.fill();
+  }
+  
+//draw the invader
+  function Invader(enemyx, enemyy, r){
+    ctx.beginPath();
+    ctx.strokeRect(enemyx,enemyy, r,10,10);
+    ctx.strokeRect(enemyx+ 50,enemyy, r,10,10);   
+    ctx.strokeRect(enemyx +20,enemyy+10, r,10,10);  
+    ctx.strokeRect(enemyx+ 30,enemyy +10, r,10,10); 
+    ctx.stroke();
+    ctx.closePath();
+    ctx.fill();
+
+    
+  }
+//timer function for invader
+    function TimerInvader(){    
+      thevar = setInterval("Move()", 100);
+      if(enemyy >= x){
+      window.confirm("you lose");
+    }
+    }
+  
+ 
+ //draw the rectangle(boundaries)
+function rect(x,y,w,h) {
+ctx.beginPath();
+ctx.rect(x,y,w,h);
+ctx.closePath();
+ctx.fill();
+ctx.stroke();
+}
+
+function clear() {
+ctx.clearRect(0, 0, WIDTH, HEIGHT);
+}
+
+function init() {
+window.addEventListener('keydown',doKeyDown,true);
+canvas = document.getElementById("canvas");
+ctx = canvas.getContext("2d");
+return setInterval(draw, 10);
+}
+
+function doKeyDown(evt){
+//key = evt.which;
+switch (evt.which) {
+
+//to go up
+case 38:  
+if (y - dy > 0){
+y -= dy;
+  if(fireOn==false){bulletY -= dy;}
+}
+break;
+
+//down
+case 40: 
+if (y + dy < HEIGHT){
+y += dy;
+if(fireOn==false){bulletY += dy;}
+}
+break;
+
+//left
+case 37:  
+  if (x - dx > 0){
+  x -= dx;
+  if(fireOn==false){bulletX -= dx;}
+  }
+break;
+
+//right
+case 39: 
+  if (x + dx < WIDTH){
+  x += dx;
+  if(fireOn==false){bulletX += dx;}
+  }
+break;
+
+//spacebar
+case 32:
+  if(fireOn == false){
+    bulletX = x;
+    bulletY = y;
+    fireOn = true;
+    Timer();
+  }
+break;
+}
+
+}
+
+
+//Timer function for bullet
+  function Timer(){
+    if(fireOn == true){
+      timer = window.setInterval("moveBullet()", 100);
+    }
+    //shut timer off
+    else if(fireOn == false){
+      window.clearInterval(timer);
+    }
+  }
+
+
+  
+//shoot the bullet to go upwards
+  function moveBullet(){
+    bulletY -=10;
+    //check when offscreen
+      if(bulletY < 0){
+        fireOn = false;
+        Timer();
+        bulletX = x;
+        bulletY = y;
+      }
+    if (bulletX <= enemyx + 35 && bulletX >= enemyx-30 && bulletY <= enemyy + 20 && bulletY >= enemyy - 20){
+        enemyy -= 10; 
+        HITS +=1;
+        ctx.fillStyle = "red";
+        Invader(enemyx, enemyy, 20);
+        fireOn = false;
+        Timer();
+            bulletX = x;
+            bulletY = y;
+            if(HITS == 3){window.confirm("you win");
+                    HITS= 0;
+                    enemyx = 150;
+                    enemyy = 0;}
+      
+    }
+            
+
+  }
+
+//draw the characters
+  function draw() {
+    clear();
+    //canvas background color
+    ctx.fillStyle = "white";
+    //outline of canvas
+    ctx.strokeStyle = "black";
+    rect(0,0,WIDTH,HEIGHT);
+    //circle color
+    ctx.fillStyle = "purple";
+    circle(x, y, 10);
+    //draw the bullet
+ctx.fillStyle = "blue";
+drawBullet(bulletX, bulletY, 2);
+//draw invader
+ctx.fillStyle = "blue";
+Invader(enemyx, enemyy, 20);
+}
+
+
+	
+	
+		
+</script>
+
+
+</head>
+
+<body onload="init()">
+	
+<!--     Navigation Bar     -->
+<div class="topnav" id="myTopnav">
+  <a href="../Index.html" class="active">MadelineTjoa</a>
+  <a href="../Qualifications.html">Qualifications</a>
+  <a href="../About.html">About</a>
+  <div class="dropdown">
+    <button class="dropbtn">Code Projects 
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="../CSharp.html">C#</a>
+      <a href="../HTML.html">HTML</a>
+      <a href="../JavaScript.html">JavaScript</a>
+      <a href="../Flash.html">Flash</a>
+      <a href="../Java.html">Java</a>
+    </div>
+  </div> 
+   <div class="dropdown">
+    <button class="dropbtn">Visual Projects 
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="../Photography.html">Photography</a>
+      <a href="../Illustrator.html">Illustrator</a>
+    </div>
+  </div> 
+  <a href="../Contact.html">Contact</a>
+
+
+  <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+</div>
+
+<!--     Top Image   -->
+<section class = "toppings">
+  
+
+
+</section>
+
+
+<!--     Content  >>>>>>>>>>>>>>>>>>>>   --> 
+
+<section >
+  </br>
+   <a href="../JavaScript.html" class="BackBack" >Back to JavaScript Project List</a>
+</br>
+  
+  <p>Space Invaders 1</p>
+
+
+
+<div>
+<canvas id="canvas" width="300" height="200" onload="TimerInvader()">
+This text is displayed if your browser does not support HTML5 Canvas.
+</canvas>
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+<!--     Butts     -->
+<section>
+
+  </br>
+  </br>
+  
+  <center>
+    
+    &copy MadelineTjoa 2018 
+
+  </center>
+
+  </br>
+  </br>
+
+</section>
+  
+
+
+
+
+</body>
+
+</html>

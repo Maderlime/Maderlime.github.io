@@ -1,0 +1,9 @@
+C:\Users\maddie\Documents\Visual Studio 2012\Projects\GITA\Tank\Tank\bin\Debug\Tank.exe.config
+C:\Users\maddie\Documents\Visual Studio 2012\Projects\GITA\Tank\Tank\obj\Debug\Tank.csprojResolveAssemblyReference.cache
+C:\Users\maddie\Documents\Visual Studio 2012\Projects\GITA\Tank\Tank\obj\Debug\Tank.Form1.resources
+C:\Users\maddie\Documents\Visual Studio 2012\Projects\GITA\Tank\Tank\obj\Debug\Tank.Properties.Resources.resources
+C:\Users\maddie\Documents\Visual Studio 2012\Projects\GITA\Tank\Tank\obj\Debug\Tank.csproj.GenerateResource.Cache
+C:\Users\maddie\Documents\Visual Studio 2012\Projects\GITA\Tank\Tank\bin\Debug\Tank.exe
+C:\Users\maddie\Documents\Visual Studio 2012\Projects\GITA\Tank\Tank\bin\Debug\Tank.pdb
+C:\Users\maddie\Documents\Visual Studio 2012\Projects\GITA\Tank\Tank\obj\Debug\Tank.exe
+C:\Users\maddie\Documents\Visual Studio 2012\Projects\GITA\Tank\Tank\obj\Debug\Tank.pdb

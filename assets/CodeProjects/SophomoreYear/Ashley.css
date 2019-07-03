@@ -1,0 +1,129 @@
+/* Desktop, fixed width CSS */
+
+
+/* Reset */
+
+* {
+	margin: 0;
+	padding: 0;   
+}
+
+/**
+ * Color, typography and basic layout
+ * Colors:
+ * - #f9f3e9 -> light cream (background)
+ * - #594846 -> Dark brown (body text, rules)
+ * - #42628F -> Dark blue (link text)
+ * - #7b96bc -> Medium-light blue (navigation and footer background)
+ */
+body {
+	background: #FFF9FB;
+	color: #000066;
+	font-family: Impact, Charcoal, sans-serif;
+}
+
+a, a:visited {
+  color: #42628F;
+}
+
+/*p { margin: 0.5em 0.25em*/
+
+h1 {
+  font-size: 1.75em;
+	border: solid #000066;
+	border-width: 10px 0;
+	padding: 0.25em;
+  text-align: center;
+  font-variant: small-caps;
+}
+
+/*h2 { text-align: center;font-variant: small-caps;}
+/*The <dl> tag defines a description list.
+
+The <dl> tag is used in conjunction with <dt> (defines terms/names) and <dd> (describes each term/name).
+
+*/
+dl {
+  margin: 0 0.5em;
+}
+
+dt {
+  font-weight: bold;
+  margin: 0.5em 1em 0.5em 0;
+  border-bottom: 1px dashed #000066;
+}
+
+.intro {
+  font-size: 1.15em;
+  line-height: 1.3em;
+  text-align: justify;
+  margin: 0.5em;
+  font-weight: bold;
+}
+
+.header p {
+  margin-left: -1000px;
+}
+
+#points ul {
+  list-style-image: url('point.png');
+  margin: 0.5em 0 1em 0.5em;
+  padding-left: 1em;
+}
+
+#points ul li {
+  margin: 0.5em 1em;
+}
+
+.footer {
+  background-color: #FFF9FB;
+  color: #FFF9FB;
+  text-align: center;
+  /* .5 times the current font */
+  padding: .5em 0;
+  font-style: italic;
+}
+
+
+
+/* Structure */
+
+body, .header, .navigation, .footer {
+  width: 70%;
+}
+
+.header, .navigation, .footer {
+  clear: both;
+}
+
+.column {
+  margin: 10px 10px 0 0;
+}
+
+.navigation {
+  min-height: 25px;
+}
+
+.navigation ul li {
+  width: 50%; /* 960/3 */
+}
+
+.header{
+  background:url(images/w.png) no-repeat;
+  height: 200px;
+}
+
+#visit {
+  width: 240px;
+  float: left;
+}
+
+#points {
+  width: 240px;
+  float: right;
+}
+
+#main {
+  margin: 10px 260px 0 250px;
+  width: 460px;
+}

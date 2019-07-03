@@ -1,0 +1,150 @@
+<!DOCTYPE HTML>
+<!--
+	Helios by HTML5 UP
+	html5up.net | @n33co
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Madeline Tjoa</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+		<script language="javascript">
+function CalculateMan(AgeDecimal, WeightDecimal, HeartRateDecimal, WorkoutDecimal){
+
+var MenBurn = ((AgeDecimal * 0.2017) - (WeightDecimal * 0.09036) + (HeartRateDecimal * 0.6309) - 55.0969) * WorkoutDecimal / 4.184;
+var outputString = "";
+MenBurn = Math.round(MenBurn );
+//What its gonna say
+outputString = "Man you burnt " +  MenBurn + " calories. ";
+//take it to e Outputform
+document.OutputForm.txtOutput.value = outputString;
+}
+function CalculateWoman(AgeDecimal, WeightDecimal, HeartRateDecimal, WorkoutDecimal){
+var WomenBurn = ((AgeDecimal * 0.074) - (WeightDecimal * 0.05741) + (HeartRateDecimal * 0.4472) - 20.4022) * WorkoutDecimal / 4.184;
+var outputString = "";
+WomenBurn = Math.round(WomenBurn );
+//What its gonna say
+outputString = "Woman you burnt " +  WomenBurn + " calories.";
+//take it to e Outputform
+document.OutputForm.txtOutput.value = outputString;
+}
+</script>
+	</head>
+	<body class="no-sidebar">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+				<div id="header">
+
+					<!-- Inner -->
+						<div class="inner">
+							<header>
+								<h1><a href="index.html" id="logo">Calorie Burner</a></h1>
+							</header>
+						</div>
+
+					<!-- Navigation-->
+						<nav id="nav">
+							<ul>
+								<li><a href="index.html">Home</a></li>
+								<li>
+									<a href="Projects.html">Projects</a>
+								</li>
+								<li><a href="GITAHTMLFRESHMANYEARPROJ.html">Freshman Year</a></li>
+								<li><a href="ProfessionalAboutMe.html">About Me</a></li>
+								<li><a href="http://globalitacademy.us/students.html">GITA Site</a></li>
+							</ul>
+						</nav>
+
+				</div>
+
+			<!-- Main -->
+				<div class="wrapper style1">
+
+					<div class="container">
+						<article id="main" class="special">
+							<header>
+								<h2><a href="#">Calories Burned</a></h2>
+								<p>
+									How many Calories have you burned from excercise?
+								</p>
+							</header>
+							
+							<section>
+								
+								<!-- Mad Libs CODE---->
+								<form name="nameForm">
+Enter your Age:<input type="text" name =txtAge value=""/></br>
+Enter your Weight :<input type="text" name =txtWeight value=""/></br>
+Enter your heart rate:<input type="text" name =txtHeartRate value=""/></br>
+Enter amount of time you worked out:<input type="text" name =txtWorkout value=""/></br>
+<input type="button" name =btnCalculateMan value="CalculateMan" 
+		onclick ="CalculateMan(nameForm.txtAge.value,
+							nameForm.txtWeight.value, 
+							nameForm.txtHeartRate.value,
+							nameForm.txtWorkout.value )"/>
+<input type="button" name =btnCalculateWoman value="CalculateWoman" 
+		onclick ="CalculateWoman(nameForm.txtAge.value,
+							nameForm.txtWeight.value, 
+							nameForm.txtHeartRate.value,
+							nameForm.txtWorkout.value )"/></br>
+</form></br></br>
+<form name="OutputForm">
+<textarea name="txtOutput" id ="outputField" rows="20" cols="30">
+</textarea>
+</form>
+								
+								
+								
+								
+							</section>
+							
+						</article>
+						
+
+					</div>
+
+				</div>
+
+			<!-- Footer -->
+				<div id="footer">
+					<div class="container">
+						<div class="row">
+								<!-- Contact -->
+									<section class="contact">
+										
+										<p>Brea Olinda</p>
+										
+									</section>
+
+								<!-- Copyright -->
+									<div class="copyright">
+										<ul class="menu">
+											<a href ="Projects.html">Back to Projects Page</a>
+										</ul>
+									</div>
+
+							</div>
+
+						</div>
+					</div>
+				</div>
+
+		</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.dropotron.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.onvisible.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

@@ -1,0 +1,90 @@
+.scrolling-wrapper {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: normal;
+  padding: 5px;
+  border-style: groove;
+  border-radius: 10px;
+  width:100%;
+}
+
+.scrolling-wrapper {
+  display: flex;
+}
+
+.card {
+  display: inline-block;
+  width: 300px;
+  height: 400px;
+  background: white;
+  flex: 1 1 auto;
+  align-content: center;
+}
+
+.scrolling-wrapper {
+  height: 400px;
+  width: 100%;
+  -webkit-overflow-scrolling: touch;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.specialimg {
+  align-content: center;
+  width: 300px;
+  height: 400px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+h2 {
+
+  width: 300px;
+  height: 400px;
+  text-align: center;
+  letter-spacing: 0.02em;
+  color: grey;
+ 
+
+}
+
+.container {
+  width: 100%;
+  align-content: left;
+  padding: 5px;
+}
+
+.product{
+
+  padding-right: 5px;
+  padding-left: 5px;
+  position: relative;
+  width:100%;
+
+}
+
+.derp{
+
+  align-content: right;
+  max-height: 400px;
+  width: 100%;
+
+}
+
+.leftButton{
+
+  position: absolute;
+  bottom: 50%;
+  left:5px;
+
+}
+.rightButton{
+
+  position: absolute;
+  bottom: 50%;
+  right:5px;
+
+}

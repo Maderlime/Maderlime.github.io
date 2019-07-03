@@ -1,0 +1,29 @@
+Initialize engine version: 5.0.0f4 (5b98b70ebeb9)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: Intel(R) HD Graphics 4000 (ID=0x166)
+    Vendor:   Intel
+    VRAM:     128 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\Maddie_2\Documents\Unity\BoomBlockish\OPEN TO PLAY GAME\(put to 1280x600)_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\Maddie_2\Documents\Unity\BoomBlockish\OPEN TO PLAY GAME\(put to 1280x600)_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\Maddie_2\Documents\Unity\BoomBlockish\OPEN TO PLAY GAME\(put to 1280x600)_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\Maddie_2\Documents\Unity\BoomBlockish\OPEN TO PLAY GAME\(put to 1280x600)_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\Maddie_2\Documents\Unity\BoomBlockish\OPEN TO PLAY GAME\(put to 1280x600)_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\Maddie_2\Documents\Unity\BoomBlockish\OPEN TO PLAY GAME\(put to 1280x600)_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+- Completed reload, in  0.399 seconds
+desktop: 1366x768 60Hz; virtual: 1366x768 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+Platform assembly: C:\Users\Maddie_2\Documents\Unity\BoomBlockish\OPEN TO PLAY GAME\(put to 1280x600)_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Users\Maddie_2\Documents\Unity\BoomBlockish\OPEN TO PLAY GAME\(put to 1280x600)_Data\Managed\System.dll (this message is harmless)
+Setting up 1 worker threads for Enlighten.
+  Thread -> id: 22ec -> priority: 1 
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 23.982344 ms
+
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 1320.
+Total: 0.754541 ms (FindLiveObjects: 0.119462 ms CreateObjectMapping: 0.151072 ms MarkObjects: 0.443775 ms  DeleteObjects: 0.039410 ms)
+

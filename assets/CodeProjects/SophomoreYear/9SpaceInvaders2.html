@@ -1,0 +1,358 @@
+<!DOCTYPE HTML>
+<!--
+	Helios by HTML5 UP
+	html5up.net | @n33co
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Madeline Tjoa</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+		<script type="text/javascript">
+
+var canvas;
+var ctx;
+//Variables
+	//this is for the Timer
+		var thevar;
+	//This is my variable array for invader
+		var invaderArray = new Array();
+		var numb = 50;
+		var HITS = 0;
+	//this is my ship coordinate
+	var shipX = 150;
+	var shipY = 500;
+	var dx = 5;
+	var dy = 5;
+	var bulletX = 150 *1;
+var bulletY = 500 *1;
+		//width and hieght of canvas
+var WIDTH = 500;
+var HEIGHT = 500;
+var fireOn = false;
+var totalKilled = 0;
+
+//load these on start
+	function onLoad(){
+		makeInvader();
+		Timer();
+		window.addEventListener('keydown',doKeyDown,true);
+		return setInterval(draw, 10);
+		canvas = document.getElementById("canvas");
+		//ctx = canvas.getContext("2d");
+	}
+		
+		
+//keep track of the Invader's coordinates and velocity
+	function defineInvader(x,y,velx,vely, hits, dead){
+			this.x = x;
+			this.y = y;
+			this.velx = velx;
+			this.vely = vely;
+			this.hits = hits;
+			this.dead = dead;
+		}
+//create the array for invader
+	function makeInvader(){
+		numb = 70;
+		for(var i=0; i<5; i++){
+			//these decide where the invaders will go
+		
+				numb += 70;
+				var Xcoord = numb;
+				var Ycoord = 50;
+							
+			//this sets new attributes for the invader location
+				invaderArray[i] = new defineInvader(Xcoord,Ycoord , 1, 10 , 0 , false);	
+						
+		}
+			//re draw the invader
+			drawInvader();				
+	}	
+	
+//timer for the invader
+	function Timer(){
+	thevar = setInterval("Move()", 300);}
+	
+	
+// drawing The invader
+	function drawInvader() {
+		var c = document.getElementById("canvas");
+		 ctx = c.getContext("2d");
+		//var ctx = c.getContext("2d");
+		ctx.canvas.width = 500;
+		ctx.canvas.height = 500;
+		ctx.fillStyle = "#000000";
+		ctx.fillRect(0,0, window.innerWidth, window.innerHeight);
+	//keeps track of how many times youve done something
+		for (var i=0;i<invaderArray.length; i++){
+		
+			ctx.fillStyle = "red";							
+			ctx.beginPath();
+			ctx.lineWidth="6";	
+			ctx.rect(invaderArray[i].x,invaderArray[i].y,15,15);
+			ctx.rect(invaderArray[i].x+ 50,invaderArray[i].y,15,15);		
+			ctx.rect(invaderArray[i].x +15,invaderArray[i].y+10,35,10);	
+			ctx.rect(invaderArray[i].x + 20,invaderArray[i].y +10,35,10);	
+			ctx.stroke();
+			ctx.closePath();
+			ctx.fill();
+		}
+			
+		
+	}
+	
+	
+//Move the invader function
+	function Move(){
+		var down = false;
+		for( var k=0;k<invaderArray.length;k++){
+		//horizontal
+									if(invaderArray[k].dead == true){
+										invaderArray[k].x = 1;
+										invaderArray[k].y = -100;
+										invaderArray[k].velx = 0;
+										invaderArray[k].vely = 0;
+									}
+									
+			if(invaderArray[k].x >= document.getElementById("canvas").width-70 || invaderArray[k].x <= 0){
+					
+						for(var i=0;i<invaderArray.length;i++ ){		
+								invaderArray[i].velx *= -1;	
+								invaderArray[i].y +=50;
+						}					
+						//for(var q=0;q<invaderArray.length;q++){}
+						
+			}	
+			for(var d=0;d<invaderArray.length;d++ ){
+				invaderArray[d].x += invaderArray[d].velx;
+			}		
+			//vertical
+			if(invaderArray[k].y > document.getElementById("canvas").height){
+					clearInterval(thevar);
+			window.confirm(" An invader took over your home! you lose");
+			}
+			
+			if(invaderArray[k].y< 0){
+				invaderArray[k].y = -100;
+			}
+			
+		}
+			
+	drawInvader();
+	
+}		
+
+
+
+	
+//function to draw bullet?
+	function drawBullet(x2, y2, r){
+		ctx.beginPath();
+		ctx.arc(x2, y2, r, 0, Math.PI*2, true);
+		ctx.closePath();
+		ctx.fill();
+	}
+
+//Timer function for bullet
+	function bulletTimer(){
+		if(fireOn == true){
+			timer = window.setInterval("moveBullet()", 1);
+		}
+		//shut timer off
+		else if(fireOn == false){
+			window.clearInterval(timer);
+		}
+	}	
+
+
+//shoot the bullet to go upwards
+	function moveBullet(){
+		bulletY -=1;
+		//check when offscreen
+			if(bulletY < 0){
+				fireOn = false;
+				bulletTimer();
+				bulletX = shipX;
+				bulletY = shipY;
+			}
+	////GOO
+		for( var k=0;k<invaderArray.length;k++){
+					if (bulletX <= invaderArray[k].x + 90  && bulletX >= invaderArray[k].x-10 && bulletY <= invaderArray[k].y + 20 && bulletY >= invaderArray[k].y - 20){
+						invaderArray[k].y -= 30;	
+				
+						ctx.fillStyle = "red";
+						drawBullet(invaderArray[k].x, invaderArray[k].y, 20);
+						fireOn = false;
+						bulletTimer();
+							bulletX = shipX;
+							bulletY = shipY;
+						invaderArray[k].hits +=1;
+							if(invaderArray[k].hits == 3){
+										invaderArray[k].dead = true;
+										totalKilled += 1;
+										//invaderArray[k].x = 0;
+										//invaderArray[k].y = 0;
+										
+										if (totalKilled == 5){
+											
+											
+											totalKilled =0;
+											window.confirm("you win");
+											invaderArray[k].dead = false;
+											makeInvader();
+											
+										}
+										}
+						
+			
+					}		
+		}
+
+	}
+	
+//funcation draws my character
+	function circle(x,y,r) {
+		ctx.beginPath();
+		ctx.arc(x, y, r, 0, Math.PI*2, true);
+		ctx.closePath();
+		ctx.fill();		
+	}
+
+function draw() {	
+		
+		ctx.fillStyle = "purple";
+		circle(shipX, shipY, 10);
+		//draw the bullet
+		ctx.fillStyle = "blue";
+		drawBullet(bulletX, bulletY, 2);		
+}	
+	
+
+	
+	
+//Keypress code
+	function doKeyDown(evt){
+		//key = evt.which;
+		switch (evt.which) {
+			//to go up
+			case 87:  
+			if (shipY - dy > 0){
+				shipY -= dy;
+				if(fireOn==false){bulletY -= dy;}
+				}
+			break;
+
+//down
+case 83: 
+if (shipY + dy < HEIGHT){
+shipY += dy;
+if(fireOn==false){bulletY += dy;}
+}
+break;
+
+//left
+case 65:  
+	if (shipX - dx > 0){
+	shipX -= dx;
+	if(fireOn==false){bulletX -= dx;}
+	}
+break;
+
+//right
+case 68: 
+	if (shipX + dx < WIDTH){
+	shipX += dx;
+	if(fireOn==false){bulletX += dx;}
+	}
+break;
+
+//spacebar
+case 70:
+	if(fireOn == false){
+		bulletX = shipX;
+		bulletY = shipY;
+		fireOn = true;
+		bulletTimer();
+	}
+break;
+}
+
+}
+		
+</script>
+	</head>
+	<body class="no-sidebar" onload="onLoad()">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+				<div id="header">
+
+					<!-- Inner -->
+						<div class="inner">
+							<header>
+								<h1><a href="index.html" id="logo">Space Invaders Two(wasd)</a></h1>
+							</header>
+						</div>
+
+					<!-- Nav -->
+						<nav id="nav">
+							<ul>
+								<li><a href="index.html">Home</a></li>
+								<li>
+									<a href="Projects.html">Projects</a>
+								</li>
+								<li><a href="GITAHTMLFRESHMANYEARPROJ.html">Freshman Year</a></li>
+								<li><a href="ProfessionalAboutMe.html">About Me</a></li>
+								<li><a href="http://globalitacademy.us/students.html">GITA Site</a></li>
+							</ul>
+						</nav>
+
+				</div>
+
+			<!-- Main -->
+				<div class="wrapper style1">
+
+					<div class="container">
+						<section>
+	
+
+<div>
+<canvas id="canvas" width="500" height="500">
+This text is displayed if your browser does not support HTML5 Canvas.
+</canvas>
+</div>
+
+
+						</section>
+								<!-- Copyright -->
+									<div class="copyright">
+										<ul class="menu">
+											<li>&copy; Madustries :D><li>Design: HTML5 UP</a></li>
+										</ul>
+									</div>
+
+							</div>
+
+						</div>
+					</div>
+				</div>
+
+		</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.dropotron.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.onvisible.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

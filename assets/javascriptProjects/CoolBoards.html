@@ -1,0 +1,203 @@
+<html>
+
+
+<head>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="utf-8" />
+ <link rel="stylesheet" href="../CSS/FlexShop2.css">
+	<link rel="stylesheet" href="../CSS/NavigationBarStyle.css">
+	<link rel="stylesheet" href="../CSS/SiteStyle.css">
+	<link rel="stylesheet" href="../CSS/Carousel2.css">
+    <link rel="stylesheet" href="Minor.css">
+	<script type="text/javascript" src="../javascript/navigationbar.js"></script>
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<script type="text/javascript">
+
+
+
+
+    var totalSales = 0;
+    var totalCustomers = 0;
+    var averageSale = 0;
+    
+    function calcPrice(radioGroup, checkBoxBoots, name, license, address, days)
+    {
+      var subTotal = 0;
+      var boardPrice = 0;
+      var bootsAdd = 0;
+      var tax = 0;
+      var total = 0;
+      var outputC;
+      var outputM;
+      if (radioGroup[0].checked)
+      {
+        boardPrice = 20;
+      }
+      else if (radioGroup[1].checked)
+      {
+        boardPrice = 30;
+      }
+      else if (radioGroup[2].checked)
+      {
+        boardPrice = 40;
+      }
+      if (checkBoxBoots.checked)
+      {
+        bootsAdd = 20;
+      }
+      subTotal = boardPrice * days + bootsAdd * days;
+      tax = subTotal * 0.08;
+      total = subTotal + tax;
+      outputC = "Customer Information" + "\n" + "   Name: " + name;
+      outputC = outputC + "\n" + "   License Number: " + license;
+      outputC = outputC + "\n" + "   Address: " + address + "\n" + "\n";
+      outputC = outputC + "Subtotal: $" + subTotal + "\n" + "Tax (8%): $" + tax;
+      outputC = outputC + "\n" + "Total: $" + total + "\n" + "\n";
+      outputC = outputC + "Thank you, " + name + ", for renting from us.";
+      document.frmOutput.txaOutputCustomer.value = outputC;
+      
+      totalSales += subTotal;
+      totalCustomers += 1;
+      averageSale = (totalSales / totalCustomers).toFixed(2);
+      outputM = "Manager Stats" + "\n" + "   Total Customers: " + totalCustomers;
+      outputM = outputM + "\n" + "   Total Sales: $" + totalSales + "\n";
+      outputM = outputM + "   Average Sale: $" + averageSale;
+      document.frmOutput.txaOutputManager.value = outputM
+    }
+
+	
+	
+		
+</script>
+
+
+</head>
+
+<body onload="onLoad()">
+	
+<!--     Navigation Bar     -->
+<div class="topnav" id="myTopnav">
+  <a href="../Index.html" class="active">MadelineTjoa</a>
+  <a href="../Qualifications.html">Qualifications</a>
+  <a href="../About.html">About</a>
+  <div class="dropdown">
+    <button class="dropbtn">Code Projects 
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="../CSharp.html">C#</a>
+      <a href="../HTML.html">HTML</a>
+      <a href="../JavaScript.html">JavaScript</a>
+      <a href="../Flash.html">Flash</a>
+      <a href="../Java.html">Java</a>
+    </div>
+  </div> 
+   <div class="dropdown">
+    <button class="dropbtn">Visual Projects 
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="../Photography.html">Photography</a>
+      <a href="../Illustrator.html">Illustrator</a>
+    </div>
+  </div> 
+  <a href="../Contact.html">Contact</a>
+
+
+  <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+</div>
+
+<!--     Top Image   -->
+<section class = "toppings">
+  
+
+
+</section>
+
+
+<!--     Content  >>>>>>>>>>>>>>>>>>>>   --> 
+
+<section >
+  </br>
+   <a href="../JavaScript.html" class="BackBack" >Back to JavaScript Project List</a>
+</br>
+  <p>Cool Boards</p>
+  
+<form name="frmMain" align = "center">
+    Name
+    <input type="text" name=txtName value=""/>
+    <br><br>
+    License Number
+    <input type="text" name=txtLicense value=""/>
+    <br><br>
+    Address
+    <input type="text" name=txtAddress value=""/>
+    <br><br>
+    Board to Rent
+    <br>
+    <input type="radio" name="radBoard" value="beginner"/>
+    Beginner Board 
+    <br>
+    <input type="radio" name="radBoard" value="intermediate"/>
+    Ameteur Board 
+    <br>
+    <input type="radio" name="radBoard" value="advanced"/>
+    Professional Board 
+    <br><br>
+    Select Option of Boot Rental
+    <br>
+    <input type="checkbox" name="chkBoots" value="boots"/>
+    Boots 
+    <br><br>
+    Enter Number of Days (integer)
+    <input type="text" name=txtDays value=""/>
+    <br><br>
+    <input type="button" name="btnCalculate" value="Calculate Price"
+        onclick="calcPrice(frmMain.radBoard, frmMain.chkBoots,
+            frmMain.txtName.value, frmMain.txtLicense.value,
+            frmMain.txtAddress.value, frmMain.txtDays.value)"/>
+  </form>
+  <form name="frmOutput">
+    <textarea name="txaOutputCustomer" class="form-control" id="outputCustomer" rows="10" cols="50">
+    </textarea>
+    <br>
+    <textarea name="txaOutputManager" class="form-control" id="outputManager" rows="5" cols="50">
+    </textarea>
+  </form>
+
+
+
+</section>
+
+
+
+
+
+
+<!--     Butts     -->
+<section>
+
+  </br>
+  </br>
+  
+  <center>
+    
+    &copy MadelineTjoa 2018 
+
+  </center>
+
+  </br>
+  </br>
+
+</section>
+  
+
+
+
+
+</body>
+
+</html>

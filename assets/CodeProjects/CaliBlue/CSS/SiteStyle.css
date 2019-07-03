@@ -1,0 +1,77 @@
+body{
+
+	font-family: Verdana;
+	margin:0;
+}
+
+img {
+
+	/*Make massive but responsive*/
+    max-width: 100%;
+    height: auto;
+
+    /*Center Image*/
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+
+}
+
+section{
+
+	background-color: #e8e8e8;
+
+
+}
+
+.toppings{
+	
+	    position: relative;
+    	width: 100%;
+
+
+}
+.toppings img{
+	width: 100%;
+	height: auto;
+
+
+}
+.toppings a{
+
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    background-color: transparent;
+    color: white;
+    font-size: 3vw;
+    padding: 1% 1%;
+    border: solid;
+    cursor: pointer;
+    border-radius: 0px;
+    text-align: center;
+    width: 25%;
+    z-index: 5;
+    text-decoration: none;
+
+
+
+}
+
+.toppings a:hover{
+
+	background-color: #1f437c;
+
+
+}
+
+.AboutUs{
+	padding: 20px;
+	padding-top: 2px;
+	font-size: 20;
+
+
+}

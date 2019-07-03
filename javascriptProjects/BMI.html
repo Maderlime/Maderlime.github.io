@@ -1,0 +1,159 @@
+<html>
+
+
+<head>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="utf-8" />
+ <link rel="stylesheet" href="../CSS/FlexShop2.css">
+	<link rel="stylesheet" href="../CSS/NavigationBarStyle.css">
+	<link rel="stylesheet" href="../CSS/SiteStyle.css">
+	<link rel="stylesheet" href="../CSS/Carousel2.css">
+
+	<script type="text/javascript" src="../javascript/navigationbar.js"></script>
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+      <link rel="stylesheet" href="Minor.css">
+
+
+<script type="text/javascript">
+
+
+
+
+function CalculateMan(AgeDecimal, WeightDecimal, HeartRateDecimal, WorkoutDecimal){
+
+var MenBurn = ((AgeDecimal * 0.2017) - (WeightDecimal * 0.09036) + (HeartRateDecimal * 0.6309) - 55.0969) * WorkoutDecimal / 4.184;
+var outputString = "";
+MenBurn = Math.round(MenBurn );
+//What its gonna say
+outputString = "Man you burnt " +  MenBurn + " calories. ";
+//take it to e Outputform
+document.OutputForm.txtOutput.value = outputString;
+}
+function CalculateWoman(AgeDecimal, WeightDecimal, HeartRateDecimal, WorkoutDecimal){
+var WomenBurn = ((AgeDecimal * 0.074) - (WeightDecimal * 0.05741) + (HeartRateDecimal * 0.4472) - 20.4022) * WorkoutDecimal / 4.184;
+var outputString = "";
+WomenBurn = Math.round(WomenBurn );
+//What its gonna say
+outputString = "Woman you burnt " +  WomenBurn + " calories.";
+//take it to e Outputform
+document.OutputForm.txtOutput.value = outputString;
+}
+
+	
+	
+		
+</script>
+
+
+</head>
+
+<body>
+	
+<!--     Navigation Bar     -->
+<div class="topnav" id="myTopnav">
+  <a href="../Index.html" class="active">MadelineTjoa</a>
+  <a href="../Qualifications.html">Qualifications</a>
+  <a href="../About.html">About</a>
+  <div class="dropdown">
+    <button class="dropbtn">Code Projects 
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="../CSharp.html">C#</a>
+      <a href="../HTML.html">HTML</a>
+      <a href="../JavaScript.html">JavaScript</a>
+      <a href="../Flash.html">Flash</a>
+      <a href="../Java.html">Java</a>
+    </div>
+  </div> 
+   <div class="dropdown">
+    <button class="dropbtn">Visual Projects 
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="../Photography.html">Photography</a>
+      <a href="../Illustrator.html">Illustrator</a>
+    </div>
+  </div> 
+  <a href="../Contact.html">Contact</a>
+
+
+  <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+</div>
+
+<!--     Top Image   -->
+<section class = "toppings">
+  
+
+
+</section>
+
+
+<!--     Content  >>>>>>>>>>>>>>>>>>>>   --> 
+
+<section >
+  </br>
+   <a href="../JavaScript.html" class="BackBack" >Back to JavaScript Project List</a>
+</br>
+  
+  <p>BMI</p>
+
+
+<form name="nameForm">
+Enter your Age:<input type="text" name =txtAge value=""/></br>
+Enter your Weight :<input type="text" name =txtWeight value=""/></br>
+Enter your heart rate:<input type="text" name =txtHeartRate value=""/></br>
+Enter amount of time you worked out:<input type="text" name =txtWorkout value=""/></br>
+<input type="button" name =btnCalculateMan value="CalculateMan" 
+    onclick ="CalculateMan(nameForm.txtAge.value,
+              nameForm.txtWeight.value, 
+              nameForm.txtHeartRate.value,
+              nameForm.txtWorkout.value )"/>
+<input type="button" name =btnCalculateWoman value="CalculateWoman" 
+    onclick ="CalculateWoman(nameForm.txtAge.value,
+              nameForm.txtWeight.value, 
+              nameForm.txtHeartRate.value,
+              nameForm.txtWorkout.value )"/></br>
+</form></br></br>
+<form name="OutputForm">
+<textarea name="txtOutput" id ="outputField" rows="2" cols="2">
+</textarea>
+</form>
+
+
+
+</section>
+
+
+
+
+
+
+<!--     Butts     -->
+<section>
+
+  </br>
+  </br>
+  
+  <center>
+    
+    &copy MadelineTjoa 2018 
+
+  </center>
+
+  </br>
+  </br>
+
+</section>
+  
+
+
+
+
+</body>
+
+</html>

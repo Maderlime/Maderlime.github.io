@@ -1,0 +1,28 @@
+body{
+	background-image: url(techno.jpg);
+		background-repeat:no-repeat;
+		background-position: top left;
+		background-attachment: fixed;
+		background-size: cover;
+
+
+
+}
+
+table{
+	background-image: url(brown.png);
+		width: 800px;
+		border: 20px;
+		border-color: Green;
+
+		
+		
+
+
+
+}
+
+a:hover{
+background-color:green;
+
+}

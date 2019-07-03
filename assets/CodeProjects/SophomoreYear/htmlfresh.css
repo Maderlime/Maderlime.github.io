@@ -1,0 +1,20 @@
+body{
+	background-image: url(GITAFReshmanHtml/Ducks.gif);
+		background-repeat: repeat;
+
+
+}
+
+table{
+	background-image: url(GITAFReshmanHtml/brown.png);
+		width: 800px;
+		border: 20px;
+		border-color: Green;
+
+
+}
+
+a:hover{
+background-color:blue;
+
+}

@@ -1,0 +1,72 @@
+.scrolling-wrapper {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+  
+  
+}
+
+.scrolling-wrapper {
+  display: flex;
+  flex-wrap: normal;
+  overflow-x: auto;
+  
+
+}
+
+.card {
+  display: inline-block;
+  border: 1px solid white;
+  width: 300px;
+  height: 200px;
+  background: blue;
+  flex: 1 1 auto;
+  margin-right: 0px;
+  
+
+
+
+}
+
+.scrolling-wrapper, .scrolling-wrapper-flexbox {
+  height: 200px;
+  width: 100%
+  -webkit-overflow-scrolling: touch;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.specialimg {
+
+  width: 300px;
+  height: 200px;
+
+}
+
+* {
+  box-sizing: border-box;
+}
+
+h1 {
+  width: 100%;
+  text-align: center;
+  letter-spacing: 0.02em;
+  margin: 2em 0 1em;
+  color: #fff;
+}
+
+.container {
+  width: 600px;
+  padding-bottom: 50px;
+
+  
+  
+}
+
+.codepen, .cp_embed_wrapper {
+  margin: 1em;
+}
+
+
+

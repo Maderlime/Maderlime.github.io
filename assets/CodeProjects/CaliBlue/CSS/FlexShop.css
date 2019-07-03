@@ -1,0 +1,103 @@
+
+
+
+/*
+NAVIGATION CSS
+*/
+
+  .product-filter {
+    display: flex;
+  }
+
+  .product-filter h1 {
+    flex-grow: 1;
+  }
+
+  .sort {
+    display: flex;
+  }
+
+    
+  .collection-sort {      /*Makes the filter on the top right alight vertically*/
+    display: flex;
+    flex-direction: column;
+  }
+
+
+/*
+PRODUCTS CSS
+*/
+
+  /*Set up the flex*/
+  .products {             
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  /*Setting up how many products will be in each row*/
+  .product-card {
+    height:200px;
+    width: 200px;
+
+    flex: 1;
+  }
+
+  .product-card {
+    
+    height:200px;
+    width: 200px;
+
+    border-style: solid;
+    border-width: 1px;
+    border-spacing: 2px;
+    border-color: grey;
+
+    margin: 2px;
+
+  }
+
+  /*Make sure images fit in nicely*/
+  .product-image img {
+   
+    height:200px;
+    width: 200px;
+   
+
+  }
+
+  /*Help align the bottom*/
+  .product-info {
+    margin-top: auto;
+  }
+
+  /*Make products area RESPONSIVE!*/
+    @media (max-width: 920px) {
+        .product-card {
+        flex: 1 21%;
+      }
+    }
+
+    /*Automatically make first two images the large images*/
+    /* Select the first two */
+    .products .product-card:first-child, 
+    .products .product-card:nth-child(2) {
+      flex: 2 46%;
+    }
+
+    /*Make Phone Responsive*/
+      @media (max-width: 600px) {
+        .product-card {
+          flex: 1 46%;
+        }
+      }
+      @media (max-width: 480px) {
+        .product-filter {
+          flex-direction: column;
+        }
+        .sort {
+          align-self: flex-start;
+        }
+      }
+
+
+

@@ -1,0 +1,201 @@
+<!DOCTYPE HTML>
+<!--
+	Helios by HTML5 UP
+	html5up.net | @n33co
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Madeline Tjoa</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+		
+		<script language="javascript">
+		var totalSales = 0;
+		var totalCustomers = 0;
+		var averageSale = 0;
+		
+		function calcPrice(radioGroup, checkBoxBoots, name, license, address, days)
+		{
+			var subTotal = 0;
+			var boardPrice = 0;
+			var bootsAdd = 0;
+			var tax = 0;
+			var total = 0;
+			var outputC;
+			var outputM;
+			if (radioGroup[0].checked)
+			{
+				boardPrice = 20;
+			}
+			else if (radioGroup[1].checked)
+			{
+				boardPrice = 30;
+			}
+			else if (radioGroup[2].checked)
+			{
+				boardPrice = 40;
+			}
+			if (checkBoxBoots.checked)
+			{
+				bootsAdd = 20;
+			}
+			subTotal = boardPrice * days + bootsAdd * days;
+			tax = subTotal * 0.08;
+			total = subTotal + tax;
+			outputC = "Customer Information" + "\n" + "   Name: " + name;
+			outputC = outputC + "\n" + "   License Number: " + license;
+			outputC = outputC + "\n" + "   Address: " + address + "\n" + "\n";
+			outputC = outputC + "Subtotal: $" + subTotal + "\n" + "Tax (8%): $" + tax;
+			outputC = outputC + "\n" + "Total: $" + total + "\n" + "\n";
+			outputC = outputC + "Thank you, " + name + ", for renting from us.";
+			document.frmOutput.txaOutputCustomer.value = outputC;
+			
+			totalSales += subTotal;
+			totalCustomers += 1;
+			averageSale = (totalSales / totalCustomers).toFixed(2);
+			outputM = "Manager Stats" + "\n" + "   Total Customers: " + totalCustomers;
+			outputM = outputM + "\n" + "   Total Sales: $" + totalSales + "\n";
+			outputM = outputM + "   Average Sale: $" + averageSale;
+			document.frmOutput.txaOutputManager.value = outputM
+		}
+	</script>
+	</head>
+	<body class="no-sidebar">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+				<div id="header">
+
+					<!-- Inner -->
+						<div class="inner">
+							<header>
+								<h1><a href="index.html" id="logo">Cool Boards</a></h1>
+							</header>
+						</div>
+
+					<!-- Navigation-->
+						<nav id="nav">
+							<ul>
+								<li><a href="index.html">Home</a></li>
+								<li>
+									<a href="Projects.html">Projects</a>
+								</li>
+								<li><a href="GITAHTMLFRESHMANYEARPROJ.html">Freshman Year</a></li>
+								<li><a href="ProfessionalAboutMe.html">About Me</a></li>
+								<li><a href="http://globalitacademy.us/students.html">GITA Site</a></li>
+							</ul>
+						</nav>
+
+				</div>
+
+			<!-- Main -->
+				<div class="wrapper style1">
+
+					<div class="container">
+						<article id="main" class="special">
+							<header>
+								<h2><a href="#"></a></h2>
+								<p>
+									CoolBoards Order
+								</p>
+							</header>
+							
+							<section>
+								
+								<!-- Mad Libs CODE---->
+								<form name="frmMain" align = "center">
+		Name
+		<input type="text" name=txtName value=""/>
+		<br><br>
+		License Number
+		<input type="text" name=txtLicense value=""/>
+		<br><br>
+		Address
+		<input type="text" name=txtAddress value=""/>
+		<br><br>
+		Board to Rent
+		<br>
+		<input type="radio" name="radBoard" value="beginner"/>
+		Beginner Board 
+		<br>
+		<input type="radio" name="radBoard" value="intermediate"/>
+		Ameteur Board 
+		<br>
+		<input type="radio" name="radBoard" value="advanced"/>
+		Professional Board 
+		<br><br>
+		Select Option of Boot Rental
+		<br>
+		<input type="checkbox" name="chkBoots" value="boots"/>
+		Boots 
+		<br><br>
+		Enter Number of Days (integer)
+		<input type="text" name=txtDays value=""/>
+		<br><br>
+		<input type="button" name="btnCalculate" value="Calculate Price"
+				onclick="calcPrice(frmMain.radBoard, frmMain.chkBoots,
+						frmMain.txtName.value, frmMain.txtLicense.value,
+						frmMain.txtAddress.value, frmMain.txtDays.value)"/>
+	</form>
+	<form name="frmOutput">
+		<textarea name="txaOutputCustomer" class="form-control" id="outputCustomer" rows="10" cols="50">
+		</textarea>
+		<br>
+		<textarea name="txaOutputManager" class="form-control" id="outputManager" rows="5" cols="50">
+		</textarea>
+	</form>
+								
+								
+								
+								
+							</section>
+							
+						</article>
+						
+
+					</div>
+
+				</div>
+
+			<!-- Footer -->
+				<div id="footer">
+					<div class="container">
+						<div class="row">
+								<!-- Contact -->
+									<section class="contact">
+										
+										<p>Brea Olinda</p>
+										
+									</section>
+
+								<!-- Copyright -->
+									<div class="copyright">
+										<ul class="menu">
+											<li>&copy; Madustries.</li><li>Design:Madeline Tjoa HTML5UP</li>
+										</ul>
+									</div>
+
+							</div>
+
+						</div>
+					</div>
+				</div>
+
+		</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.dropotron.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.onvisible.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

@@ -1,0 +1,214 @@
+<!DOCTYPE HTML>
+<!--
+	Helios by HTML5 UP
+	html5up.net | @n33co
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Madeline Tjoa</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+		<script language = "javascript">
+
+//	for horizontal; width
+	//var Xcoord = Math.floor(Math.random()*500)*1;
+	//var Ycoord = Math.floor(Math.random()*150)*1;
+	//var Xcoord = 150;
+	//var Ycoord = 100;
+	var thevar;
+	var circleArray = new Array();
+	
+//define object(keep track of its attributes)
+	function defineCircle(x,y,velx,vely){
+		this.x = x;
+		this.y = y;
+		this.velx = velx;
+		this.vely = vely;
+	}	
+	
+//create the array
+	function makeCircle(){
+		for(var i=0; i<10; i++){
+				var Xcoord = Math.floor(Math.random() * 500)*1;
+				var Ycoord = Math.floor(Math.random() * 150)*1;
+				
+				circleArray[i] = new defineCircle(Xcoord,Ycoord , Math.floor(Math.random() * 10)*1, Math.floor(Math.random() * 10)*1);	
+						
+				}
+			//call the scream function
+			drawCircle();	
+			
+	}
+
+	
+	
+//The Timer for move function
+	function Timer(){	thevar = setInterval("Move()", 100);}
+
+// drawing circle
+	function drawCircle() {
+		var c = document.getElementById("myCanvas");
+		var ctx = c.getContext("2d");
+		ctx.canvas.width = 500;
+		ctx.canvas.height = 500;
+		ctx.fillStyle = "#000000";
+		ctx.fillRect(0,0, window.innerWidth, window.innerHeight);
+//keeps track of how many times youve done something ----------FIX THIS PART---------
+		for (var i=0;i<circleArray.length; i++){
+			ctx.fillStyle = getRandomColor();			
+			ctx.beginPath();
+			ctx.arc(circleArray[i].x,circleArray[i].y, 15,0,Math.PI * 2,true);
+			ctx.closePath();
+			ctx.fill();
+		}
+			
+		
+	}
+//colors
+	function getRandomColor() {
+
+// creating a random number between 0 and 255
+// creating colors; r=red, g= green, b= blue
+//colors are red green and blue mixed together that is why there is three variables
+var r = Math.floor(Math.random()*256);
+var g = Math.floor(Math.random()*256);
+var b = Math.floor(Math.random()*256);
+ 
+// going from decimal to hex
+var hexR = r.toString(16);
+var hexG = g.toString(16);
+var hexB = b.toString(16);
+ 
+// making sure single character values are prepended with a "0"
+if (hexR.length == 1) {
+hexR = "0" + hexR;
+}
+ 
+if (hexG.length == 1) {
+hexG = "0" + hexG;
+}
+ 
+if (hexB.length == 1) {
+hexB = "0" + hexB;
+}
+ 
+	// creating the hex value by concatenatening the string values
+		var hexColor = "#" + hexR + hexG + hexB;
+		return hexColor.toUpperCase();
+}
+
+
+	//Move function
+	function Move(){
+		for( var k=0;k<circleArray.length;k++){
+		//horizontal
+		if(circleArray[k].x > document.getElementById("myCanvas").width){	
+			circleArray[k].velx *= -1;	
+		}
+		else if(circleArray[k].x <= 0){	
+			circleArray[k].velx *= -1;	
+		}
+		circleArray[k].x += circleArray[k].velx;
+			
+			//vertical
+		if(circleArray[k].y > document.getElementById("myCanvas").height){
+			circleArray[k].vely *= -1;
+			}
+	else if(circleArray[k].y <= 0){
+			circleArray[k].vely *= -1;
+		}
+	circleArray[k].y += circleArray[k].vely;	
+	
+
+	
+			circleArray[k].x += circleArray[k].velx;
+			circleArray[k].y += circleArray[k].vely;
+		}
+		
+	
+	
+	drawCircle();
+	
+}	
+
+function StopTimer(){
+	clearInterval(thevar);
+}
+</script>
+	</head>
+	<body class="no-sidebar" onload = "makeCircle()">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+				<div id="header">
+
+					<!-- Inner -->
+						<div class="inner">
+							<header>
+								<h1><a href="index.html" id="logo">Balls Array</a></h1>
+							</header>
+						</div>
+
+					<!-- Nav -->
+						<nav id="nav">
+							<ul>
+								<li><a href="index.html">Home</a></li>
+								<li>
+									<a href="Projects.html">Projects</a>
+								</li>
+								<li><a href="GITAHTMLFRESHMANYEARPROJ.html">Freshman Year</a></li>
+								<li><a href="ProfessionalAboutMe.html">About Me</a></li>
+								<li><a href="http://globalitacademy.us/students.html">GITA Site</a></li>
+							</ul>
+						</nav>
+
+				</div>
+
+			<!-- Main -->
+				<div class="wrapper style1">
+
+					<div class="container"><center>
+			
+<table align = "center" width="50%"><tr><td>
+						<h1>How to do animation </h1>
+</br>
+</br>
+<canvas id = "myCanvas" width = "500" height = "500"
+style = "border: 1px solid rgb(195,195,195);">
+Your browser does not support the canvas tag element
+</canvas>
+</br>
+<input type = "button" name = "Stop Timer" value="Move Circle" onclick ="StopTimer()"/>
+<input type="button" name="GOOO" value="auto-Move Fish" onclick="Timer()"/>
+</td></tr></table></center>
+								<!-- Copyright -->
+									<div class="copyright">
+										<ul class="menu">
+											<li>&copy; Madustries.</li><li>Design:HTML5</a></li>
+										</ul>
+									</div>
+
+							</div>
+
+					
+					</div>
+				</div>
+
+		</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.dropotron.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.onvisible.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

@@ -1,0 +1,24 @@
+body{
+	background-image: url(theoceanwater.jpg);
+		background-position:top left;
+		background-repeat: fixed;
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-attachment: fixed;
+
+
+}
+
+table{
+	background-image: url(brown.png);
+		width: 800px;
+		border: 20px;
+		border-color: Green;
+
+
+}
+
+a:hover{
+background-color:blue;
+
+}

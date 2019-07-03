@@ -1,0 +1,22 @@
+body{
+	background-image: url(GITAFReshmanHtml/Cows.gif);
+		
+		background-repeat: repeat;
+		background-attachment: fixed;
+
+
+}
+
+table{
+	background-image: url(GITAFReshmanHtml/brown.png);
+		width: 800px;
+		border: 20px;
+		border-color: Green;
+
+
+}
+
+a:hover{
+background-color:blue;
+
+}

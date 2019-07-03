@@ -1,0 +1,17 @@
+@import url("font-awesome.min.css");
+body, p{
+margin: 0;
+		padding: 0;
+		border: 0;
+		font-size: 100%;
+		font: inherit;
+		vertical-align: baseline;
+		
+background: #f0f4f4;
+		color: #5b5b5b;
+		font-size: 15pt;
+		line-height: 1.85em;
+		font-family: FontAwesome;
+		font-weight: 300;		
+}
+p{font-family: arial;}
