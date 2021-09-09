@@ -4,6 +4,46 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
 
+string = '					<div class="inner">\
+\
+							<!-- Menu -->\
+							<nav id="menu">		\
+					<header class="major">\
+								<h2>Menu</h2>\
+							</header>\
+							<ul>\
+								<li><a href="index.html">Homepage</a></li>\
+								<li><a href="aboutMe.html">About</a></li>\
+								<li><a href="coding_projects.html">(new) Coding Projects</a></li>\
+								<li><a href="visual_projects.html">(new) Visual Projects</a></li>\
+								<li>\
+									<span class="opener">Coding Projects</span>\
+									<ul>\
+										<li><a href="java.html">Java</a></li>\
+										<li><a href="python.html">Python</a></li>\
+										<li><a href="csharp.html">C#</a></li>\
+										<li><a href="javascript.html">JavaScript</a></li>\
+										<li><a href="flash.html">Flash</a></li>\
+										<li><a href="HTML.html">HTML</a></li>\
+									</ul>\
+								</li>\
+								<li>\
+									<span class="opener">Visual Projects</span>\
+									<ul>\
+										<li><a href="photography.html">Photography</a></li>\
+										<li><a href="illustrator.html">Illustrator Graphics</a></li>\
+										<li><a href="otherArt.html">other Graphics</a></li>\
+									</ul>\
+								</li>\
+								<li><a href="contact.html">Contact</a></li>\
+							</ul></nav>\
+							<!-- Footer -->\
+								<footer id="footer">\
+									<p class="copyright">&copy; Maderlime 2021. All rights reserved. Design: HTML5 UP.</p>\
+								</footer>\
+						</div>';
+document.getElementById("sidebar").innerHTML = string;
+
 (function($) {
 
 	var	$window = $(window),
